@@ -12,23 +12,23 @@ import br.edu.ifpr.todolistif.repository.ToDoRepository;
 @SpringBootApplication
 public class TodolistifApplication {
 
-	private final ToDoRepository toDoRepository;
+	private final ToDoRepository todoRepository;
 
-    public TodolistifApplication(ToDoRepository toDoRepository) {
-        this.toDoRepository = toDoRepository;
+    public TodolistifApplication(ToDoRepository todoRepository) {
+        this.todoRepository = todoRepository;
     }
 	
 	public static void main(String[] args) {
 		SpringApplication.run(TodolistifApplication.class, args);
 	}
 
-	CommandLineRunner exe (ToDoRepository toDoRepository) {
+	CommandLineRunner exe (ToDoRepository todoRepository) {
 		return args -> {
 			// Aqui você pode adicionar código para inicializar o banco de dados ou executar outras tarefas ao iniciar a aplicação
 			ToDo todo = new ToDo();
 			todo.setTitle("Exemplo de tarefa");
-			todo.setDeadLine(LocalDateTime.now().plusDays(7)); // Define um prazo de 7 dias para a tarefa
-			toDoRepository.save(todo);
+			todo.setDeadLine(LocalDateTime.now()); 
+			todoRepository.save(todo);
 		};
 	}
 
