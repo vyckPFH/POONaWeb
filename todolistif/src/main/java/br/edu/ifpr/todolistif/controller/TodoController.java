@@ -5,7 +5,10 @@ import org.springframework.stereotype.Controller;
 import br.edu.ifpr.todolistif.model.ToDo;
 import br.edu.ifpr.todolistif.repository.ToDoRepository;
 
-@Controller
+@Controller // Define que essa classe é um controlador do Spring MVC, responsável por lidar com as requisições HTTP e retornar respostas apropriadas.
+// A anotação @Controller indica que essa classe contém métodos que podem ser mapeados para URLs específicas e processar as solicitações recebidas.
+// pode retornar respostas em diferentes formatos, como HTML, JSON, XML, etc., (ou paginas web) dependendo da configuração do projeto e das bibliotecas utilizadas.
+
 public class TodoController {
     private final ToDoRepository toDoRepository;
 
