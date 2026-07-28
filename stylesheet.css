@@ -1,0 +1,108 @@
+/* Cores do tema natureza */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1f5f0;
+    color: #2d5a3d;
+    margin: 0; /* Remove a margem padrão do corpo */
+    padding: 20px; /* Adiciona um espaçamento interno ao corpo */
+}
+
+/* Cabeçalho com separador */
+header {
+    text-align: center; /* Centraliza o conteúdo do cabeçalho */
+    padding-bottom: 15px; /* Adiciona espaçamento interno na parte inferior do cabeçalho */
+    margin-bottom: 30px; /* Adiciona espaçamento externo na parte inferior do cabeçalho */
+    border-bottom: 2px solid #6ba857; /* Adiciona uma linha de separação na parte inferior do cabeçalho */
+}
+
+header h1 { /* Título principal */
+    color: #2d5a3d;    
+    margin: 0;
+    font-size: 2rem; /* Define o tamanho da fonte do título principal */
+}
+
+/* Seção de tarefas */
+main {
+    max-width: 600px; /* Largura máxima para centralizar o conteúdo */
+    margin: 0 auto; /* Centraliza horizontalmente a seção*/
+}
+
+.input-tarefa {
+    width: 100%; /* Faz o campo de entrada ocupar toda a largura disponível */
+    padding: 10px; /* Adiciona espaçamento interno ao campo de entrada */
+    border: 1px solid #6ba857; /* Define a borda do campo de entrada */
+    border-radius: 4px; /* Bordas arredondadas para um visual mais suave */
+    box-sizing: border-box; /* Inclui o padding e a borda na largura total do elemento */
+    margin-bottom: 15px; /* Adiciona espaçamento abaixo do campo de entrada */
+}
+
+
+.tarefas {
+        background-color: #ffffff;
+        padding: 20px; /* Adiciona espaçamento interno à seção de tarefas */
+        border-radius: 8px; /* Bordas arredondadas para um visual mais suave */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para dar profundidade */
+}
+
+/* Estilo do input: centralizado e maior para facilitar preenchimento */
+#input-tarefa {
+        display: block;
+        width: 100%;           /* ocupa todo o espaço dentro de .tarefas */
+        max-width: 520px;      /* limita a largura para telas grandes */
+        margin: 0 auto 12px;   /* centraliza e adiciona espaçamento abaixo */
+        padding: 14px 12px;    /* aumenta a altura da caixa */
+        font-size: 1.05rem;    /* texto maior para melhor leitura */
+        border: 1px solid #d9ead3; /* borda suave verde-claro */
+        border-radius: 6px;
+        color: #2d5a3d;
+}
+
+@media (max-width:460px){
+    #input-tarefa{max-width:100%}
+}
+    
+
+
+/* Lista de tarefas */
+#lista-tarefas {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+#lista-tarefas li {
+    background-color: #f1f5f0;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-left: 4px solid #6ba857;
+    border-radius: 4px;
+    color: #2d5a3d;
+}
+
+/* Botão adicionar */
+#adicionar-tarefa {
+    display: block;
+    width: 60px;
+    height: 60px;
+    background-color: #6ba857;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    margin: 20px auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+#adicionar-tarefa:hover {
+    background-color: #5a9547;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    color: #7a8c79;
+    font-size: 0.9rem;
+}
+
