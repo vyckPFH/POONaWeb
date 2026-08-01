@@ -1,6 +1,8 @@
 package br.edu.ifpr.todolistif.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.ifpr.todolistif.model.ToDo;
 import br.edu.ifpr.todolistif.repository.ToDoRepository;
@@ -19,10 +21,15 @@ public class TodoController {
 
     //Métodos do controller para lidar com as requisições HTTP (GET, POST, PUT, DELETE) podem ser adicionados aqui
     
-    //Criar nova tarefa
-    public String create(ToDo to_do) {
-        toDoRepository.save(to_do);
-        return "redirect:/"; //Redireciona para a lista de tarefas após criar uma nova
+    @PostMapping("/create")
+    public String create(ToDo toDo) {
+        toDoRepository.save(toDo);
+        return "redirect:/";
+    }
+
+    @GetMapping("/")
+    public String index() {
+        return "index";
     }
 
 
