@@ -17,6 +17,8 @@
 |aa|
 |a|
 
+https://chatgpt.com/share/6a688348-9bc4-83e9-afb4-f00d9fcaa3e2
+
 grupo: dominio da empresa escrito ao contrario (cocacola.com -> com.cocacola)
 artifact: nome do projeto
 
