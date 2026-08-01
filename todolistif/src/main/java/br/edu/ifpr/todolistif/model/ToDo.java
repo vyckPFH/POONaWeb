@@ -1,6 +1,6 @@
 package br.edu.ifpr.todolistif.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,17 +17,17 @@ public class ToDo {
     @Column(nullable = false)
     private String title; //tarefa
     @Column(nullable = false)
-    private LocalDateTime createdAt; //data criação da tarefa
-    @Column(nullable = false)
-    private LocalDateTime deadLine; //prazo para concluir a tarefa
-    private LocalDateTime finishedAt; //data de conclusão da tarefa
+    private LocalDate createdAt; //data criação da tarefa
+    // @Column(nullable = false)
+    private LocalDate deadLine; //prazo para concluir a tarefa
+    private LocalDate finishedAt; //data de conclusão da tarefa
 
     public ToDo() {
-        this.createdAt = LocalDateTime.now();
+        this.createdAt = LocalDate.now();
     }
 
     public void markAsFinished() {
-        this.finishedAt = LocalDateTime.now();
+        this.finishedAt = LocalDate.now();
     }
 
     public long getId() {
@@ -46,27 +46,27 @@ public class ToDo {
         this.title = title;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public LocalDateTime getDeadLine() {
+    public LocalDate getDeadLine() {
         return deadLine;
     }
 
-    public void setDeadLine(LocalDateTime deadLine) {
+    public void setDeadLine(LocalDate deadLine) {
         this.deadLine = deadLine;
     }
 
-    public LocalDateTime getFinishedAt() {
+    public LocalDate getFinishedAt() {
         return finishedAt;
     }
 
-    public void setFinishedAt(LocalDateTime finishedAt) {
+    public void setFinishedAt(LocalDate finishedAt) {
         this.finishedAt = finishedAt;
     }
     

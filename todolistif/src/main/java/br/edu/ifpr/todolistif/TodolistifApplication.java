@@ -1,13 +1,10 @@
 package br.edu.ifpr.todolistif;
 
-import java.time.LocalDateTime; 
+import java.time.LocalDate;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 
 import br.edu.ifpr.todolistif.model.ToDo;
 import br.edu.ifpr.todolistif.repository.ToDoRepository;
@@ -34,7 +31,7 @@ public class TodolistifApplication {
 			// Aqui você pode adicionar código para inicializar o banco de dados ou executar outras tarefas ao iniciar a aplicação
 			ToDo todo = new ToDo();
 			todo.setTitle("Exemplo de tarefa");
-			todo.setDeadLine(LocalDateTime.now()); 
+			todo.setDeadLine(LocalDate.now()); 
 			todoRepository.save(todo);
 		};
 	}
