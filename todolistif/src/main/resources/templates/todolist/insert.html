@@ -9,15 +9,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <h1>Bem-vindo ao ToDoListIF</h1>
-       
-        <h2>Escolha uma opção:</h2>
-        <button type="button" onclick="window.location.href='/list'">Ver todas as suas Tarefas</button>
-        <br> <br>
-        <button type="button" onclick="window.location.href='/insert'">Registrar uma nova Tarefa</button>
+        <button type="button" onclick="window.location.href='/'">Voltar</button>
+
+        <form method="post" action="/create">
+            <label>Tarefa</label><input type="text" name="title"/><br>
+            <label>Prazo</label><input type="date" name="deadLine"/><br>
+            <button type="submit">Salvar</button>
+        </form> 
+        
     </body>
 </html>
+
 <!--
+
 window.location.href ->
 window é um objeto que representa a janela do navegador
 location é uma propriedade que contém informações sobre a URL atual da página e permite redirecionar para outra URL(ou seja, outro path).

@@ -1,11 +1,16 @@
 package br.edu.ifpr.todolistif.controller;
 
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import br.edu.ifpr.todolistif.model.ToDo;
 import br.edu.ifpr.todolistif.repository.ToDoRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller // Define que essa classe é um controlador do Spring MVC, responsável por lidar com as requisições HTTP e retornar respostas apropriadas.
 // A anotação @Controller indica que essa classe contém métodos que podem ser mapeados para URLs específicas e processar as solicitações recebidas.
@@ -21,16 +26,44 @@ public class TodoController {
 
     //Métodos do controller para lidar com as requisições HTTP (GET, POST, PUT, DELETE) podem ser adicionados aqui
     
-    @PostMapping("/create")
+    //criar uma nova tarefa (ToDo) e salvar no banco de dados
+    @PostMapping("/create") // Define que o método create() será chamado quando uma requisição POST for feita para a URL "/create" do aplicativo.
     public String create(ToDo toDo) {
         toDoRepository.save(toDo);
         return "redirect:/";
     }
 
+    @GetMapping("/insert")
+    public String renderizarTelaInsert() {
+        return "todolist/insert";
+    }
+    
+
     @GetMapping("/")
     public String index() {
         return "index";
     }
+
+    @GetMapping("/list") // Define que o método index() será chamado quando uma requisição GET for feita para a URL raiz ("/") do aplicativo.
+    public ModelAndView renderizarTelaList() { // qnd chamado, executa uma listagem de todas as tarefas (ToDo) persistidas no BD e retorna uma resposta adequada.
+        // ModelAndView cria uma view do model, como quero mostrar na tela.
+             
+        return new ModelAndView(
+            // "todolistif/list" é o nome da view (página HTML) que será renderizada para exibir a lista de tarefas.
+            // Map.of("todos", toDoRepository.findAll()) cria um mapa de dados que será passado para a view. A chave "todos" é usada para acessar a lista de tarefas no template da view, e o valor é obtido chamando o método findAll() do repositório, que retorna todas as tarefas armazenadas no banco de dados.
+            // um mapa de dados é uma estrutura que associa chaves a valores, permitindo que você armazene e recupere informações de forma organizada. No contexto do Spring MVC, o mapa de dados é usado para passar informações do controlador para a view, permitindo que os dados sejam exibidos na interface do usuário.
+            //.findAll: retorna uma lista de todas as entidades ToDo armazenadas no banco de dados.
+            "todolist/list", Map.of("todos", toDoRepository.findAll()) 
+        );
+    }
+
+    // exemplo de teste cm thunderclient: GET http://localhost:8080/list
+    // @GetMapping("/teste/toDos")
+    // public String getMethodName(@RequestParam String param) {
+    //     return new String();
+    // }
+    
+    
 
 
 }

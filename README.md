@@ -17,7 +17,81 @@
 |aa|
 |a|
 
-https://chatgpt.com/share/6a688348-9bc4-83e9-afb4-f00d9fcaa3e2
+## MVC x APIs?
+
+A aplicação pode ser entendida como uma estrutura baseada em MVC, enquanto o uso de APIs representa uma forma de comunicação entre o frontend e o backend.
+
+| Aspecto | MVC | API |
+|--------|-----|-----|
+| Definição | Padrão de arquitetura para organizar a aplicação em Model, View e Controller. | Interface que permite que diferentes sistemas troquem dados de forma padronizada. |
+| Objetivo | Separar responsabilidades dentro da aplicação. | Expor funcionalidades para serem consumidas por outros sistemas ou interfaces. |
+| Componentes | Model: regras e dados; View: interface; Controller: processamento e interação. | Endpoint: rota que recebe e retorna dados, normalmente em JSON. |
+| Comunicação | A View é renderizada no servidor e devolvida ao usuário. | O cliente consome os dados via requisições HTTP, como GET, POST, PUT e DELETE. |
+| Exemplo | Spring Boot renderizando páginas HTML com Thymeleaf. | Spring Boot retornando JSON para frontend ou outro sistema. |
+| Uso comum | Aplicações web com interface tradicional. | Aplicações que precisam de integração com frontend, mobile ou terceiros. |
+
+Em resumo, MVC organiza a estrutura interna da aplicação, enquanto API define como os dados são acessados e trocados. Em muitos projetos modernos, eles podem coexistir: a aplicação usa MVC para renderizar páginas e também expõe uma API para comunicação com outros clientes.
+
+
+## Estrutura do projeto
+
+A aplicação está organizada em pastas seguindo a arquitetura padrão do Spring Boot:
+
+- `todolistif/`
+  - `pom.xml`
+    - Arquivo de configuração do Maven.
+    - Define as dependências da aplicação, como Spring Boot, Thymeleaf e outras bibliotecas necessárias para o funcionamento do projeto.
+
+  - `mvnw` e `mvnw.cmd`
+    - Scripts para executar a aplicação com Maven Wrapper, sem necessidade de instalar o Maven manualmente.
+
+  - `src/`
+    - Pasta principal contendo o código-fonte da aplicação.
+
+    - `main/`
+      - Diretório com os arquivos da aplicação em execução.
+
+      - `java/`
+        - Contém o código Java do projeto.
+
+        - `br/edu/ifpr/todolistif/`
+          - Pacote principal da aplicação.
+
+          - `TodolistifApplication.java`
+            - Classe principal responsável por iniciar a aplicação Spring Boot.
+
+          - `controller/`
+            - Pasta onde ficam os controladores da aplicação.
+            - Eles recebem as requisições HTTP e direcionam o fluxo para a lógica correta.
+            - Exemplo: `TodoController.java` e `helloworldController.java`.
+
+          - `model/`
+            - Pasta com as classes de modelo, que representam os dados da aplicação.
+            - Aqui ficam as entidades do sistema, como `ToDo.java`, que descreve uma tarefa.
+
+          - `repository/`
+            - Pasta com as interfaces de acesso ao banco de dados.
+            - Responsável por operações de persistência, como salvar, buscar e excluir tarefas.
+            - Exemplo: `ToDoRepository.java`.
+
+      - `resources/`
+        - Contém arquivos de configuração e recursos usados pela aplicação.
+
+        - `application.properties`
+          - Arquivo com as configurações da aplicação, como porta do servidor e conexão com o banco de dados.
+
+        - `templates/`
+          - Pasta com os templates HTML renderizados pela aplicação.
+          - Exemplo: `index.html`, que é a página principal da interface.
+
+    - `test/`
+      - Diretório com os testes da aplicação.
+      - Exemplo: `TodolistifApplicationTests.java`.
+
+  - `target/`
+    - Pasta gerada automaticamente pelo Maven após compilação.
+    - Contém arquivos compilados e resultados do build.
+
 
 grupo: dominio da empresa escrito ao contrario (cocacola.com -> com.cocacola)
 artifact: nome do projeto

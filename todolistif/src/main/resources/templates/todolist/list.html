@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- Define o namespace do Thymeleaf para permitir o uso de atributos específicos -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Inserir Tarefa</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        
+        <a href="/">Voltar</a>
+      <h1>Lista de Tarefas</h1>
+
+        <ul> 
+<!--  O atributo th:each é usado para iterar sobre a lista de tarefas passada pelo controlador.-->
+        <li th:each="todo : ${todos}">
+            <label> <!-- Cria um rótulo para cada tarefa. A cada iteração, a variável todo representa a tarefa atual da lista. -->
+                <input type="checkbox" th:checked="${todo.finishedAt != null}"> <!-- Cria uma caixa de seleção (checkbox) para cada tarefa.
+                O atributo th:checked é usado para definir se a caixa de seleção deve estar marcada ou não, com base na condição de que a tarefa foi concluída (finishedAt não é nulo). -->
+                <span th:text="${todo.title}"></span> <!-- Exibe o título da tarefa usando o atributo th:text, que substitui o conteúdo do elemento span pelo valor da propriedade title da tarefa atual. -->
+                <span th:text="${todo.deadLine}"></span> <!-- Exibe o prazo da tarefa usando o atributo th:text, que substitui o conteúdo do elemento span pelo valor da propriedade deadLine da tarefa atual. -->
+            </label>
+        </li>
+    </ul>
+
+    </body>
+</html>
