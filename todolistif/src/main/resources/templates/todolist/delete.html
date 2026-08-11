@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"> <!-- Define o namespace do Thymeleaf para permitir o uso de atributos específicos -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Excluir Tarefa</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <button type="button" onclick="window.location.href='/'">Voltar</button>
+
+         <h1>Tarefas Registradas</h1>
+
+        <ul> 
+<!--  O atributo th:each é usado para iterar sobre a lista de tarefas passada pelo controlador.-->
+        <li th:each="todo : ${todos}">
+            <label> <!-- Cria um rótulo para cada tarefa. A cada iteração, a variável todo representa a tarefa atual da lista. -->
+                <input type="checkbox" th:checked="${todo.finishedAt != null}"> <!-- Cria uma caixa de seleção (checkbox) para cada tarefa.
+                O atributo th:checked é usado para definir se a caixa de seleção deve estar marcada ou não, com base na condição de que a tarefa foi concluída (finishedAt não é nulo). -->
+                <span th:text="${todo.title}"></span> <!-- Exibe o título da tarefa usando o atributo th:text, que substitui o conteúdo do elemento span pelo valor da propriedade title da tarefa atual. -->
+                <span th:text="${todo.deadLine}"></span> <!-- Exibe o prazo da tarefa usando o atributo th:text, que substitui o conteúdo do elemento span pelo valor da propriedade deadLine da tarefa atual. -->
+            </label>
+        </li>
+    </ul>
+    <p>fim da lista</p>
+
+        <form method="post" action="/delete">
+            <label>Tarefa</label><input type="text" name="title"/><br>
+            <button type="submit">Excluir</button>
+        </form> 
+        
+    </body>
+</html>
+
+<!--
+
+window.location.href ->
+window é um objeto que representa a janela do navegador
+location é uma propriedade que contém informações sobre a URL atual da página e permite redirecionar para outra URL(ou seja, outro path).
+window.location.href é uma propriedade que representa a URL completa da página atual. 
+exemplo: se a URL atual for "http://localhost:8080/list", então window.location.href terá o valor "http://localhost:8080/list".
+Ao atribuir um novo valor a window.location.href, você está redirecionando o navegador para essa nova URL.
+
+-->

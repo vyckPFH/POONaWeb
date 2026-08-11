@@ -30,8 +30,30 @@ public class TodoController {
     @PostMapping("/create") // Define que o método create() será chamado quando uma requisição POST for feita para a URL "/create" do aplicativo.
     public String create(ToDo toDo) {
         toDoRepository.save(toDo);
-        return "redirect:/";
+        return "redirect:/insert"; // redireciona para a página de inserção após salvar a tarefa
     }
+
+    
+
+
+    @PostMapping("/deletePorTitulo") // Define que o método create() será chamado quando uma requisição POST for feita para a URL "/create" do aplicativo.
+    public String delete(ToDo toDo) {
+        ToDo tarefa = toDoRepository.findByTitle(toDo.getTitle());
+        toDoRepository.delete(tarefa);
+        return "redirect:/deletePorTitulo"; // redireciona para a página de inserção após salvar a tarefa
+    }
+
+
+
+
+    @GetMapping("/deletePorTitulo")
+    public ModelAndView apagarTarefas() {
+              return new ModelAndView(
+           
+            "todolist/deletePorTitulo", Map.of("todos", toDoRepository.findAll()) 
+        );
+    }
+    
 
     @GetMapping("/insert")
     public String renderizarTelaInsert() {
